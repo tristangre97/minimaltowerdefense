@@ -1,0 +1,634 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:200i,400,600');
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	background: #e0e0e0;
+	color: #FFF;
+	padding: 0;
+	margin: 0;
+}
+
+.totheright {
+	float: right;
+}
+
+canvas {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 100%;
+	max-width: 840px;
+	border-radius: 3px;
+}
+
+.buttoncase {
+	width: 100%;
+	max-width: 840px;
+	background: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 0px 3px 3px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.towerbuttons {
+	background: #fff;
+	color: #212121;
+	font-size: 15px;
+	text-align: left;
+	padding: 3px;
+	top: 82px;
+	left: 33px;
+	width: 214px;
+	height: auto;
+	position: fixed;
+    border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	word-wrap: break-word;
+	
+}
+
+.towerbuttons h1 {
+   margin: 2px;
+	font-weight: 500;
+	font-size: 1.5em;
+	font-family: 'Zilla Slab', serif;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.smoltext {
+	font-size: 12px;
+	color: #95a5a6
+}
+
+.quicktips {
+	background: #fff;
+	color: #212121;
+	font-size: 15px;
+	text-align: left;
+	padding: 3px;
+	top: 82px;
+	font-weight:400;
+	right: 33px;
+	width: 214px;
+	height: auto;
+	position: fixed;
+	word-wrap: break-word;
+	 border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.quicktips h1 {
+	 margin: 2px;
+	font-weight: 500;
+	font-size: 1.5em;
+	font-family: 'Zilla Slab', serif;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.quicktips h2 {
+	 margin: 0px;
+	font-weight: 500;
+	font-size: 1.3em;
+	font-family: 'Zilla Slab', serif;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+#tower_defense {
+	background-image: url("http://www.chynow.pl/bundles/velacmssolutionchynow/images/animation3.gif");
+	background-size: auto auto;
+}
+
+button {
+	color: #444;
+	background: transparent;
+	width: 214px;
+	font-family: 'Source Sans Pro', sans-serif;
+	border: 0;
+	border-radius: 3px;
+	position: relative;
+	text-align: left;
+	font-size: 20px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.3;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 4px;
+	display: inline-block;
+	text-decoration: none;
+	-o-transition: .3s;
+	-ms-transition: .3s;
+	-moz-transition: .3s;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+button:hover {
+	background: #ededed;
+	color: #444;
+	-o-transition: .3s;
+	-ms-transition: .3s;
+	-moz-transition: .3s;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+.titlep {
+	color: #212121;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 20px;
+	margin-bottom: 5px;
+	border-bottom: 2px solid #d6d6d6;
+}
+
+.settingbtns {
+	background-color: #efefef;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	width: auto;
+	border: 0;
+	position: relative;
+	text-align: center;
+	font-size: 14px;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 10px 15px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.settingbtns:hover {
+	background: #ededed;
+}
+
+.cost {
+	float: right;
+}
+
+button:focus {
+	outline: -webkit-focus-ring-color auto 0;
+}
+
+button.active_mode {
+	background: #CFD8DC;
+	-o-transition: .3s;
+	-ms-transition: .3s;
+	-moz-transition: .3s;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+div#game {
+	padding-top: 75px;
+	padding-bottom: 20px;
+	overflow: auto;
+}
+
+#game div {
+	overflow: auto
+}
+
+#menu {}
+
+#top_controls .item {
+	margin-top: 100px;
+	padding-left: 10px;
+	margin: 7px;
+	color: #FFF;
+	font-size: 208px;
+	padding-right: 30px;
+}
+
+#middle {
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bottom_controls {
+	position: fixed;
+	padding-left: 245px;
+	bottom: 15px;
+}
+
+#game_over {
+	padding-left: 40px;
+    padding-right: 5px;
+	background: #fff;
+	background-image: url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678136-shield-warning-128.png');
+	background-position: 5px 8px;
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	color: #E74C3C;
+	z-index: 99999;
+	position: fixed;
+width: 100%;
+bottom: 0;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 300;
+	border-radius: 3px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+	-webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.error {
+position: fixed;
+width: 100%;
+bottom: 0;
+	padding-left: 40px;
+	background: #fff;
+	background-image: url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678069-sign-error-64.png');
+	background-position: 5px 8px;
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	color: #E74C3C;
+	z-index: 99999;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 300;
+	border-radius: 3px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+   
+}
+
+div#side {
+	float: left;
+}
+
+.smoltext {
+	font-size: 12px;
+	color: #95a5a6
+}
+
+#tower {
+	font-size: 15px;
+	display: none;
+	text-align: left;
+}
+
+#creep {
+	font-size: 15px;
+	display: none;
+}
+
+#side table {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+#logging_button {
+	display: none;
+}
+
+.hotkey {
+	text-decoration: underline;
+}
+
+.hotkeyhide {
+	position: fixed;
+	top: 0;
+	left;
+	z-index: 0;
+}
+
+#help {
+	background: #fff;
+	color: #212121;
+	margin-top: 100px;
+	margin-left: 380px;
+	padding-left: 30px;
+	padding-right: 30px;
+	width: 550px;
+	height: 400px;
+	overflow: auto;
+	position: fixed;
+	z-index: 1000;
+	display: none;
+	box-shadow: 0 3px 2px rgba(0, 0, 0, .25);
+	-webkit-animation: fade-in .6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in .6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+#help-sections div {
+	display: none;
+}
+
+#help-sections div.visible {
+	display: block;
+}
+
+#help-headers {
+	padding: 10px;
+	border-bottom: 2px solid #d6d6d6;
+}
+
+a.section {
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-decoration: none;
+	color: #AAA;
+}
+
+a.section:hover {
+	color: #7f8c8d;
+}
+
+a.section.active {
+	color: #2c3e50;
+	text-decoration: bold;
+	border-bottom: 2px solid #d6d6d6;
+}
+
+a.section.active:hover {
+	color: #2c3e50;
+	font-decoration: bold;
+	border-bottom: 2px solid #d6d6d6;
+}
+
+#help .superlaser-tower {
+	color: rgb(192, 57, 43);
+}
+
+#help .sniper-tower {
+	color: rgb(46, 204, 113);
+}
+
+#help .missile-tower {
+	color: rgb(211, 84, 0);
+}
+
+#help .laser-tower {
+	color: rgb(231, 76, 60);
+}
+
+#help .cannon-tower {
+	color: rgb(22, 160, 133);
+}
+
+#help .gatling-tower {
+	color: rgb(241, 196, 15);
+}
+
+#help .snow-tower {
+	color: rgb(52, 152, 219);
+}
+
+#help .normal-creep {
+	color: #2c3e50;
+}
+
+#help .strong-creep {
+	color: #c0392b;
+}
+
+#help .quick-creep {
+	color: #f1c40f
+}
+
+#help .boss-creep {
+	color: #8e44ad;
+}
+
+#help .mob-creep {
+	color: #2c3e50;
+}
+
+#help .neutral-terrain {
+	color: rgb(236, 240, 241);
+	text-shadow: 1px 1px #212121;
+}
+
+#help .mountain-terrain {
+	color: #7f8c8d;
+}
+
+#help .water-terrain {
+	color: #2980b9;
+}
+
+#help .power-plant-terrain {
+	color: #27ae60;
+}
+
+#help .bomb {
+	color: rgb(100, 120, 140);
+}
+
+#help .nuke {
+	color: rgb(255, 70, 30);
+}
+
+#help::-webkit-scrollbar {
+	width: 3px;
+}
+
+#help::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#help::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
+}
+.titlebar {
+font-size: 14px;
+text-align: center;
+background:  rgba(0, 0, 0, 0.1);
+width: 100%;
+margin-left: 0px;
+}
+#infobar1 {
+	font-size: 30px;
+	font-weight: 300;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background: #fff;
+	color: #212121;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: light;
+margin: 0;
+	z-index: 1000;
+	box-shadow: 0 3px 2px rgba(0, 0, 0, .25);
+}
+
+#infobar2 {
+	width: auto;
+	background: white;
+	color: #212121;
+	top: 0px;
+	font-family: 'Source Sans Pro', sans-serif;
+	left: 100px;
+	padding: .2em;
+	z-index: 1000;
+}
+
+#infobar3 {
+	font-size: 20px;
+	position: fixed;
+	width: auto;
+	background: white;
+	color: #212121;
+	font-family: 'Source Sans Pro', sans-serif;
+	left: 0px;
+	bottom: 0px;
+	padding: .2em;
+	z-index: 1000;
+	transition: box-shadow 0.25s ease-in;
+}
+
+.circlebutton {
+	width: 40px;
+	border-radius: 50%;
+	top: 15px;
+	right: 10px;
+}
+
+.missilebtn {
+	background: rgb(250, 150, 50);
+	color: #212121;
+}
+
+.laserbtn {
+	background: rgb(90, 150, 50);
+	color: #212121;
+}
+
+.cannonbtn {
+	background: rgb(100, 120, 140);
+	color: #212121;
+}
+
+.gatlingbtn {
+	background: rgb(250, 250, 50);
+	color: #212121;
+}
+
+.bombbtn {
+	background: #455a64;
+	color: #212121;
+}
+
+.nukebtn {
+	color: #212121;
+}
+
+.nukebtn:hover {
+	background: rgba(230, 126, 34, .8);
+	color: #fff;
+}
+
+.control {
+	font-size: 15px;
+	color: #212121;
+	width: auto;
+	border: 0;
+	text-align: left;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 5px;
+	display: inline-block;
+	text-decoration: none;
+	-o-transition: .3s;
+	-ms-transition: .3s;
+	-moz-transition: .3s;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+.icons {
+	font-size: 15px;
+	font-height: 15px;
+	color: #212121;
+	width: auto;
+	border: 0;
+	text-align: left;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 5px;
+	display: inline-block;
+	text-decoration: none;
+	-o-transition: .3s;
+	-ms-transition: .3s;
+	-moz-transition: .3s;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+.towerselect {
+	background: #fff;
+	color: #212121;
+	font-weight: normal;
+	font-size: 15px;
+	text-align: left;
+	padding: 3px;
+	top: 87px;
+	left: 35px;
+	width: 214px;
+	height: auto;
+	position: fixed;
+	border-radius: 3px;
+	word-wrap: break-word;
+}
+
+.towerselect h1 {
+	border-bottom: 1px solid #212121;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 1.8;
+}
+
+.accordion {
+	color: #fff;
+	background: #2c3e50;
+	cursor: pointer;
+	padding: 7px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+}
+
+.accordion:after {
+	content: '\002B';
+	color: #777;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.accordion.active:after {
+	content: "\2212";
+}
+
+div.panel {
+	padding: 0 18px;
+	color: #fff;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.hr {
+	border-top: 0px solid #212121;
+	border-bottom: 1px solid #212121;
+}
+
+.logobox {
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+}
+
+.tge {
+	color: #b61924;
+}
