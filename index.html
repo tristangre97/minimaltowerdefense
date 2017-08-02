@@ -1,0 +1,521 @@
+<!-- <!DOCTYPE XHTML 1.1> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="text/html; charset=utf-8" http-equiv="Content-type">
+<title>Minimal Tower Defense</title>
+<link href="game/style.css" media="screen" rel="Stylesheet" type="text/css">
+<link href=
+"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Zilla+Slab:400,500,700" rel="stylesheet">
+<link href="game/iconcss/external-min.css" rel="stylesheet">
+</head>
+
+<div id="help"><button class='control totheright' id='help_button' onclick="toggle_help();"><i class="fal fal-lg">&#xf042;</i></button>
+<div id="help-headers"><span><a class="section active" href="#help-gameplay">Options</a></span> <span><a class="section" href="#help-towers">Towers</a></span> <span><a class="section" href="#help-creeps">Blobs</a></span> <span><a class="section" href="#help-terrain">Terrain</a></span> <span><a class="section" href="#help-bomb">Changes</a></span></div>
+
+<div id="help-sections">
+<div class="visible" id="help-gameplay">
+<p class="titlep">Tools</p>
+<a class="settingbtns" id="download">Screenshot</a>
+
+</div>
+
+<div id="help-towers">
+<p>Towers keep the bad guys away</p>
+<strong class='laser-tower'>Laser Towers</strong>
+<p>Shoots lasers pretty quickly.<br>
+Damage - 10<br>
+Range - 4</p>
+<strong class='gatling-tower'>Gatling Towers</strong>
+<p>Unleashs a relentless fury of bullets<br>
+Damage - 30<br>
+Range - 3.5</p>
+<strong class='cannon-tower'>Cannon Towers</strong>
+<p>Shoots balls of destruction that causes splash damage.<br>
+Damage - 100<br>
+Range - 4</p>
+<strong class='missile-tower'>Missile Towers</strong>
+<p>Slow-firing towers with long range and the gentle caress of a freight
+truck.<br>
+Damage - 5000<br>
+Range - 6.5</p>
+<strong class='sniper-tower'>Sniper Towers</strong>
+<p>Slow-firing towers with the ability to cover the entire map.<br>
+Damage - 650<br>
+Range - ∞</p>
+<strong class='laser-tower'>Super Laser Towers</strong>
+<p>Shoots a constant beam at a single blob.<br>
+Damage - 45/ms<br>
+Range - 7</p>
+<strong class='snow-tower'>Snow Towers</strong>
+<p>Shoots a snowball at a single blob, slowing them down.<br>
+Damage - 0/ms
+Takes away 5 speed points per shot<br>
+Range - 2</p>
+</div>
+
+<div id="help-creeps">
+<p>Blobs are the evil scourge which long to plaster the sickening <strong>Game
+Over</strong> message at the top of your screen. Resisting them is your
+calling, your purpose, your afternoon you were supposed to spend doing
+homework.</p>
+<strong class='normal-creep'>Normal Blobs</strong>
+<p>You will know these Blobs well, and will prosper by ending their drab,
+boring existences</p>
+<br>
+<strong class='quick-creep'>Quick Blobs</strong>
+<p>These blobs arrive every third wave. These Blobs move quickly, but their
+smaller bodies can take less damage</p>
+<br>
+<strong class='strong-creep'>Strong Blobs</strong>
+<p>These blobs plow through your territory every five waves. They're slow, but
+extremely hearty.</p>
+<br>
+<strong class='boss-creep'>Boss Blobs</strong>
+<p>Once in a blue moon, one of these warlords appears and lays waste to your
+defenses with its absurd hitpoints and size.</p>
+<br>
+<strong class='mob-creep'>M.O.B</strong>
+<p>You need to hope to never see one of these.</p>
+<hr>
+<p>Each of those categories of Blobs can also have one additional behavior.
+Some Blobs are very slow crossing water, some climb mountains at shocking
+speeds, and some even fly over your towers while mocking the effectiveness of
+your intricate designs.</p>
+</div>
+
+<div id="help-terrain">
+<p>Each square on the board is a certain type of terrain. Terrain is randomly
+assigned each time the game is played, and bestows certain effects upon towers
+and Blobs inside of them.</p>
+<strong class='neutral-terrain'>Neutral Terrain</strong>
+<p>This is the most common terrain, and doesn't do anything.</p>
+<br>
+<strong class='water-terrain'>Water Terrain</strong>
+<p>This terrain slows most Blobs down.</p>
+<br>
+<strong class='mountain-terrain'>Mountain Terrain</strong>
+<p>This terrain slows Blobs down, and gives towers a range bonus.</p>
+<br>
+<strong class='power-plant-terrain'>Power Plant Terrain</strong>
+<p>This terrain makes Blobs twice as fast, and will also double the damage of
+any tower built there.</p>
+<br>
+
+<center><img height="auto" src="game/help.png" width="210px">
+</center>
+</div>
+
+<div id="help-bomb">
+<p><b>4.0</b> <span class="smoltext">6/25</span><br>
+New tower (Snow Tower)<br>
+Optimized clean code<br>
+Rebalances<br>
+Screenshot your game</p>
+
+<p><b>3.4</b> <span class="smoltext">6/10</span><br>
+More small UI fixes</p>
+
+<p><b>3.3</b> <span class="smoltext">5/14</span><br>
+Fixed the rest of the UI from 3.0<br>
+Controls are now icons instead of text<br>
+Added this menu<br>
+Added a dark mode</p>
+<p>
+</div>
+</div>
+</div>
+
+<div id="infobar1">
+<div class="titlebar">Minimal Tower Defense - <span class="tge">TristanGames Edition</span></div>
+<center><i class="fal">&#xf049;</i> <span id="lives">20</span> <i class="fal">&#xf0d4;</i> <span id="gold">0</span> <i class="fal">&#xf052;</i> <span id="wave">1</span> <i class="fal">&#xf00d;</i> <span id="score">0</span> <button class='active_mode' id='logging_button' onclick='toggle_logging();'>Stop <span class='hotkey'>D</span>ebugging</button></center>
+</div>
+
+<div id="game">
+<canvas class="infobar1" id='tower_defense'>
+</canvas>
+
+<div class="hotkeyhide"><button class='control totheright' onclick=
+"spawn_wave();"><span class='hotkey'>W</span></button>
+</div>
+
+<div class="buttoncase"><button class='mode_button icons' onclick=
+"playpause();"><i aria-hidden="true" class="fa fa-pause-circle-o"></i></button>
+<button class='icons' id='reset_button' onclick="reset_game();"><i aria-hidden=
+"true" class="fa fa-undo"></i></button> <button class='icons' onclick=
+"spawn_wave();"><i aria-hidden="true" class="fa fa-fast-forward"></i></button>
+<button class='icons' id='help_button' onclick="toggle_help();"><i aria-hidden=
+"true" class="fa fa-ellipsis-v"></i></button> <button class=
+'control totheright' id='help_button'>V 4</button>
+</div>
+
+<div class='error message_area'>
+</div>
+
+<div class='message message_area'>
+</div>
+
+</div>
+
+<div id="bottom_controls">
+
+</div>
+
+<div class="towerbuttons" id="dark2">
+<h1>Towers</h1>
+<tr>
+<td><button accesskey="L" class='mode_button' id='laser_button' onclick=
+"build_laser_tower();"><span class='hotkey'>L</span>aser Tower <span class=
+"cost">$25</span></button>
+</td>
+</tr>
+
+<tr>
+<td><button class='mode_button' id='gatling_button' onclick=
+"build_gatling_tower();"><span class='hotkey'>G</span>attling Tower
+<span class="cost">$50</span></button>
+</td>
+</tr>
+
+<tr>
+<td><button accesskey="M" class='mode_button' id='cannon_button' onclick=
+"build_cannon_tower();"><span class='hotkey'>C</span>annon Tower <span class=
+"cost">$75</span></button>
+</td>
+</tr>
+
+<tr>
+<td><button accesskey="M" class='mode_button' id='missile_button' onclick=
+"build_missile_tower();"><span class='hotkey'>M</span>issile Tower <span class=
+"cost">$100</span></button>
+</td>
+</tr>
+
+<tr>
+<td><button accesskey="S" class='mode_button' id='sniper_button' onclick=
+"build_sniper_tower();"><span class='hotkey'>S</span>niper Tower <span class=
+"cost">$125</span></button>
+</td>
+</tr>
+
+<tr>
+<td><button accesskey="A" class='mode_button' id='superlaser_button' onclick=
+"build_superlaser_tower();">Super L<span class='hotkey'>a</span>ser
+<span class="cost">$225</span></button>
+</td>
+</tr>
+
+<tr>
+<td><button accesskey="S" class='mode_button' id='snow_button' onclick=
+"build_snow_tower();"><span class='hotkey'>S</span>now Tower <span class=
+"cost">$500</span></button>
+</td>
+</tr>
+<h1>Explosives</h1>
+
+<tr>
+<td><button accesskey="B" class='mode_button' id='bomb_button' onclick="aim_bomb();">Drop <span class='hotkey'>B</span>omb <span class="cost">$<span id="bomb_cost">$50</span></span>
+<button accesskey="N" class="nukebtn" id='nukebtn' onclick="nuke_creeps();">Launch <span class='hotkey'>N</span>uke <span class="cost" id="nukes_left">3 left</span></button></button>
+</td>
+</tr>
+</table>
+</table>
+</div>
+
+<div class="quicktips" id="dark3">
+<h1>Blob Info</h1>
+<span class='item'>Next wave in <span id="till_next_wave"></span>
+seconds</span>
+<h1>
+</h1>
+
+<h2>Current Blob Type</h2>
+<span class='item'><span id="creep_variety"></span>
+<h1>
+</h1>
+
+<div id="creep"><b>Blob Stats</b>
+<table>
+<tr>
+<b>Type</b>
+<div id="creep_type">
+</div></td>
+</tr>
+
+<tr>
+<td><b>Hp</b>
+<div id="creep_hp">
+</div></td>
+</tr>
+
+<tr>
+<td><b>Value</b>
+<div id="creep_value">
+</div></td>
+</tr>
+</table>
+</div>
+<span class="smoltext"><i>Click a Blob for info</i></span><br>
+
+<div id="tower">
+<h1>Tower Info</h1>
+
+<table>
+<tr>
+<b>Type</b>
+<div id="tower_type">
+</div></td>
+</tr>
+
+<tr>
+<td><b>Range</b>
+<div id="tower_range">
+</div></td>
+</tr>
+
+<tr>
+<td><b>Damage</b>
+<div id="tower_damage">
+</div></td>
+</tr>
+
+<tr>
+<b>Firing Rate</b>
+<div id="tower_rate">
+</div></td>
+</tr>
+</table>
+<button id="tower_sell_button"></button> <button id=
+"tower_upgrade_button"><span class='hotkey'>U</span>pgrade</button></div>
+</div>
+
+<div id="game_over">
+</div>
+
+<div id="js_imports">
+<!-- Putting script elements as late in the document as possible gives
+    a better, faster initial render. -->
+<script charset="utf-8" src="game/js/processing.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/jsfprocessing.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="https://tristans.games/games/MTD/game/jquery-1.2.6.min.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/creep_waves.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/terrain.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/util.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/creeps.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/ui_modes.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/weapons.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/ptd.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="game/js/tgengine.js" type="text/javascript">
+</script> 
+<script charset="utf-8" src="/jquery.ui-1.5/ui/effects.core.js" type=
+"text/javascript">
+</script> 
+<script charset="utf-8" src=/jquery.ui-1.5/ui/effects.highlight.js" type=
+"text/javascript">
+</script></div>
+<script charset="utf-8" type="text/javascript">
+    /* initialization */
+    $(document).ready(function() {
+        start_tower_defense();
+    })
+    
+    
+    /* Hotkeys! */
+    special_keys = {
+        27: 'esc', 9: 'tab', 32:'space', 13: 'return', 8:'backspace', 145: 'scroll', 20: 'capslock', 
+        144: 'numlock', 19:'pause', 45:'insert', 36:'home', 46:'del',35:'end', 33: 'pageup', 16: 'shift', 
+        34:'pagedown', 37:'left', 38:'up', 39:'right',40:'down', 112:'f1',113:'f2', 114:'f3', 
+        115:'f4', 116:'f5', 117:'f6', 118:'f7', 119:'f8', 120:'f9', 121:'f10', 122:'f11', 123:'f12'};
+    
+    /* Modifier keys */
+    var modifierkeys = {};
+    var shift_down = false;
+    
+    //extract hotkeys from the DOM
+    var hotkeys = {};
+    $('button .hotkey').each(function(){
+        //this is bass ackwards, but I got type errors passing around the native click method
+        var button = this.parentNode;
+        hotkeys[$(this).html().toUpperCase()] = function() {button.click()};
+    });
+    
+    //hotkeys that aren't in the dom
+    hotkeys["space"] = pause;
+    hotkeys["esc"] = unselect;
+    hotkeys['Z'] = function() {$('#log').empty()};
+    hotkeys['R'] = function() {if (SET.state.name() == "GameOverMode") reset_game();}
+    
+    //modifiers to be called on keydown and keyup
+    modifierkeys["shift"] = function() { shift_down = !shift_down; };
+    
+    $(document).bind("keydown", function(e) {
+        // if the user is holding down ctrl or cmd, let the browser handle it
+        if (e.metaKey) return true;
+        var key = special_keys[e.keyCode] || String.fromCharCode(e.keyCode);
+        if (key in hotkeys){
+            hotkeys[key]();
+            return false;
+        }
+        if (key in modifierkeys){
+            modifierkeys[key]();
+            return false;
+        }
+        return true;
+    });
+    
+    $(document).bind("keyup", function(e) {
+        if (e.metaKey) return true;
+        var key = special_keys[e.keyCode] || String.fromCharCode(e.keyCode);
+        if (key in modifierkeys){
+            modifierkeys[key]();
+            return false;
+        }
+        return true;
+    });
+    
+
+    /* Toggle buttons along the bottom */
+
+    // all of this is really a prime candidate for some cleanup
+    // so much dupiclation and so many global variables for such
+    // simple behavior
+
+    var paused = false;
+    function pause() {
+        paused = !paused;
+        pause_resume();
+        $('#pause_button').html(paused ? "Resume" : "Pause");          
+    }
+    function mute() {
+        mute_unmute();
+        $('#mute_button').html(muted ? "Unmute" : "Mute");
+    }
+    var logging = true;
+    var prim_log = log;
+    function toggle_logging() {
+        logging = !logging;
+        
+        if (logging)
+          log = prim_log;
+        else
+          log = function(){};
+        $("#logging_button").toggleClass("active_mode").html(logging? "Stop <span class='hotkey'>D<\/span>ebugging" : 'Start <span class="hotkey">D<\/span>ebugging');
+    }
+    
+    if (document.location.hash == "#debug")
+      $('#logging_button').show();
+    else{
+      toggle_logging()
+      $('#logging_button')[0].onclick = function(){};
+    }
+    
+    var getIdFromURL = function(url) {
+      return url.slice(url.indexOf("#"));
+    }
+    $("#help-headers .section").click(function() {
+      $("#help-sections div").hide();
+      $(getIdFromURL(this.href)).show();
+      $("#help-headers .section").removeClass("active");
+      $(this).addClass("active");
+      return false;
+    })
+
+    var help_displayed = false;
+    var toggle_help = function() {
+      help_displayed = !help_displayed;
+      if (help_displayed){
+        $("#help").show();
+        $("#help_button").addClass("active_mode");
+        if (!paused) pause();
+      }
+      else {
+        $('#help').hide();
+        $('#help_button').removeClass('active_mode');
+        if (paused) pause();
+      }
+    };
+
+
+
+    /* illustrating to the user what mode they're in*/
+    mode_signifiers = {
+ 	'BuildLaserTowerMode': 'laser_button',
+ 	'BuildGatlingTowerMode': 'gatling_button',
+ 	'BuildCannonTowerMode': 'cannon_button',
+ 	'BuildMissileTowerMode': 'missile_button',
+ 	'BuildSnowTowerMode': 'snow_button',
+ 	'BuildsuperlaserTowerMode': 'superlaser_button',
+ 	'BuildsniperTowerMode': 'sniper_button',
+ 	'BuilddevTowerMode': 'dev_button',
+ 	'AimBombMode': 'bomb_button',
+ 	'PauseMode': 'pause_button'
+ };
+ for (event in mode_signifiers) {
+ 	$('').bind(event, function(e) {
+ 		$('#' + mode_signifiers[e.type]).addClass('active_mode');
+ 	});
+ }
+ $('').bind('no_mode', function() {
+ 	$('.mode_button').removeClass('active_mode');
+ })
+    
+     /* Messages for the player */
+
+   //Temporary messages are a bit of a pain
+    var timeToHide = null;
+    ["error","message"].forEach(function(s){
+        $('.'+s).hide();
+        $('').bind(s,function(e,message){
+            timeToHide = new Date().getTime() + 2500;
+            var el = $('.'+s);
+            el.html(message).fadeIn();
+            window.setTimeout(function() {
+                if (new Date().getTime() >= timeToHide)
+                    el.fadeOut();
+            }, 3000);
+        });
+    });
+    $('#game_over').hide();
+    $('').bind('game_over', function(e,over){
+        if (over == true){
+            log("game over");
+            $('#game_over').html("Game Over! Final score: " + $("#score").html()).fadeIn();
+            //tempt tempt tempt
+            for (var i=0; i < 3; i++)
+              $("#reset_button").effect("highlight",{color:"#ff3b3f"},10000); 
+        }
+        else{
+          log("game (re?)started");
+          $('#game_over').html("Just once more...").fadeOut();
+        }
+    });
+    
+    
+    /* stub until we pull in sound for reals */
+    var play_sound = function(){};
+
+</script> 
+<script>
+function playpause() {
+  paused = !paused;
+        pause_resume();
+        }
+</script> 
+<div id="sfx_dump">
+</div>
+</body>
+</html>
